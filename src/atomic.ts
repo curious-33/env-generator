@@ -5,12 +5,12 @@ const atomicComponent = (config: Partial<GeneratorConfig>, plop: NodePlopAPI) =>
   const prompts = []
   const actions = []
 
-  prompts.push({
-    type: 'list',
-    name: 'type',
-    message: 'component type',
-    choices: ['Atom', 'Molecule', 'Organism', 'Template', 'Page'],
-  })
+  // prompts.push({
+  //   type: 'list',
+  //   name: 'type',
+  //   message: 'component type',
+  //   choices: ['Atom', 'Molecule', 'Organism', 'Template', 'Page'],
+  // })
 
   prompts.push({
     type: 'input',
