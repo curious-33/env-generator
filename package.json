@@ -4,12 +4,13 @@
   "description": "development enviroment generator",
   "main": "dist/index.js",
   "scripts": {
-    "start": "tsc-watch --onSuccess \"node ./dist/index.js\"",
+    "start": "tsc-watch --onSuccess \"node ./dist/index.js\" && cp -r src/templates dist/templates",
     "lint": "eslint src/**/*.{js,ts,json}",
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
     "format": "prettier --check src/**/*.{js,jsx,ts,tsx,json}",
     "format:fix": "prettier --write 'src/**/*.{js,jsx,ts,tsx,md,json}' --config ./.prettierrc",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,9 @@
   },
   "homepage": "https://github.com/curious-33/env-generator#readme",
   "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@release-it/conventional-changelog": "^5.1.1",
     "@typescript-eslint/eslint-plugin": "^5.40.1",
     "@typescript-eslint/parser": "^5.40.1",
     "eslint": "^8.25.0",
@@ -39,6 +43,7 @@
     "husky": ">=6",
     "lint-staged": ">=10",
     "prettier": "^2.7.1",
+    "release-it": "^15.5.0",
     "ts-node": "^10.9.1",
     "tsc-watch": "^5.0.3",
     "typescript": "^4.8.4"
@@ -46,11 +51,45 @@
   "dependencies": {
     "node-plop": "^0.31.0"
   },
-  "peerDependencies": {
-    "plop": "^3.1.1"
-  },
+  "peerDependencies": {},
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": "eslint --cache --fix",
     "*.{ts,tsx,md,json,js,jsx}": "prettier --write"
+  },
+  "engines": {
+    "node": ">=0.10.3 <15",
+    "npm": "~1.0.20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release v${version}"
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": false
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "infile": "CHANGELOG.md",
+        "preset": {
+          "name": "conventionalCommits",
+          "types": [
+            {
+              "type": "feat",
+              "section": "Features"
+            },
+            {
+              "type": "fix",
+              "section": "Bug Fixes"
+            }
+          ]
+        }
+      }
+    }
   }
 }
