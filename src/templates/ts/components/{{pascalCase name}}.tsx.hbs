@@ -1,0 +1,12 @@
+import React, {ReactElement, HTMLProps} from 'react';
+import './{{pascalCase name}}.style.scss'
+
+export interface I{{pascalCase name}}Props extends HTMLProps<{{type}}>{
+  children?: ReactElement;
+}
+
+const {{pascalCase name}}Component = (props: I{{pascalCase name}}Props): ReactElement<{{type}}> => {
+  return <{{tag}} className='{{camelCase name}}'>{{pascalCase name}} Component</{{tag}}>
+}
+
+export default {{pascalCase name}}Component;

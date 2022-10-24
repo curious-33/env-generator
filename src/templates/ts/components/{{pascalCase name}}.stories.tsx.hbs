@@ -1,0 +1,18 @@
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+import {{pascalCase name}}Component, { I{{pascalCase name}}Props } from './{{pascalCase name}}'
+
+export default {
+  title: 'Components/{{pascalCase name}}',
+  component: {{pascalCase name}}Component,
+  argTypes: {},
+  parameters: {},
+  decorators: [],
+} as ComponentMeta<typeof {{pascalCase name}}Component>
+
+const {{pascalCase name}}: ComponentStory<typeof {{pascalCase name}}Component> = (args: I{{pascalCase name}}Props) => (
+  <{{pascalCase name}}Component {...args} />
+)
+
+export const {{pascalCase name}}Story = {{pascalCase name}}.bind({})
+
+{{pascalCase name}}Story.args = {}
