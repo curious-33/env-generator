@@ -4,8 +4,9 @@
   "description": "development enviroment generator",
   "main": "dist/index.js",
   "scripts": {
-    "start": "tsc-watch --onSuccess \"node ./dist/index.js\" && cp -r src/templates dist/templates",
+    "start": "tsc-watch --onCompilationComplete 'yarn update:templates' --onSuccess 'node ./dist/index.js'",
     "lint": "eslint src/**/*.{js,ts,json}",
+    "update:templates": "rm -rf dist/templates && cp -r src/templates dist/templates",
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
     "format": "prettier --check src/**/*.{js,jsx,ts,tsx,json}",
     "format:fix": "prettier --write 'src/**/*.{js,jsx,ts,tsx,md,json}' --config ./.prettierrc",
