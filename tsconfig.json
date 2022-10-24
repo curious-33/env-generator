@@ -103,5 +103,5 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "include": ["src/**/*", "example/plopfile.js"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist", "src/templates"]
 }
