@@ -1,0 +1,17 @@
+import {{pascalCase name}}Component from './{{pascalCase name}}'
+
+export default {
+  title: 'Components/{{pascalCase name}}',
+  component: {{pascalCase name}}Component,
+  argTypes: {},
+  parameters: {},
+  decorators: [],
+} 
+
+const {{pascalCase name}} = (args) => (
+  <{{pascalCase name}}Component {...args} />
+)
+
+export const {{pascalCase name}}Story = {{pascalCase name}}.bind({})
+
+{{pascalCase name}}Story.args = {}
